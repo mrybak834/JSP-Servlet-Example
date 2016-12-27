@@ -6,7 +6,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 /**
  * Created by marekrybakiewicz on 12/27/16.
@@ -21,8 +20,7 @@ public class Servlet extends HttpServlet {
         if (req.getParameter("firstname") == null || req.getParameter("lastname") == null) {
             //Originally no request parameters, so we serve the default jsp page
             getServletContext().getRequestDispatcher("/index.jsp").forward(req, resp);
-        }
-        else{
+        } else {
             //After the user submits a request with non-null first and last names, we serve a different page
 
             //First obtain the user input from the request
@@ -34,7 +32,7 @@ public class Servlet extends HttpServlet {
             req.setAttribute("lastname", lastName);
 
             //Serve up the other jsp page, with the request properly modified
-            getServletContext().getRequestDispatcher("/output.jsp").forward(req,resp);
+            getServletContext().getRequestDispatcher("/output.jsp").forward(req, resp);
         }
     }
 }
