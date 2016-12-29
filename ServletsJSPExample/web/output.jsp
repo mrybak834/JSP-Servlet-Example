@@ -7,21 +7,32 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-    <head>
-        <title>Output</title>
-    </head>
-    <body>
-        <h1>Your credentials: </h1>
+<head>
+    <title>Output</title>
+</head>
+<body>
+<h1>Your credentials: </h1>
 
-        <h2>
-            <!-- Anything inside <%%> is a scriptlet. It contains java or JSP code-->
-            <%
-                //Gets the attributes we want from the request of our servlet
-                String firstname = (String) request.getAttribute("firstname");
-                String lastname = (String) request.getAttribute("lastname");
-
-                out.print(firstname + " " + lastname);
-            %>
-        </h2>
-    </body>
+<h2>
+    <!-- Anything inside <%%> is a scriptlet. It contains java or JSP code-->
+    <%
+        //Gets the attributes we want from the request of our servlet
+        String firstname = (String) request.getAttribute("firstname");
+        String lastname = (String) request.getAttribute("lastname");
+    %>
+    <!-- Output data as a table. %= sets the field equal to a variable -->
+    <table bgcolor="#ff7f50" border="5">
+        <tr>
+            <td>First Name:</td>
+            <td><%=firstname%>
+            </td>
+        </tr>
+        <tr>
+            <td>Last Name:</td>
+            <td><%=lastname%>
+            </td>
+        </tr>
+    </table>
+</h2>
+</body>
 </html>
